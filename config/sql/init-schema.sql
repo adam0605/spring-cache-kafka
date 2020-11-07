@@ -3,3 +3,20 @@ DROP DATABASE IF EXISTS test;
 CREATE DATABASE test DEFAULT CHARACTER SET utf8;
 
 use test;
+
+CREATE TABLE `member`
+(
+    `id`      BIGINT UNSIGNED AUTO_INCREMENT,
+    `name`    VARCHAR(255) NOT NULL,
+    `age`     INT,
+    `created` DATETIME(6)  NOT NULL,
+    `creator` VARCHAR(255),
+    `updated` DATETIME(6)  NOT NULL,
+    `updater` VARCHAR(255),
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 1
+  DEFAULT CHARSET = utf8;
+
+ALTER TABLE member
+    ADD CONSTRAINT UNIQUE_MEMBER UNIQUE (name);
